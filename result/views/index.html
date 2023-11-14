@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="catsvsdogs">
+
+<head>
+  <meta charset="utf-8">
+  <title>Distancias</title>
+  <base href="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="docker-compose, docker, stack">
+  <meta name="author" content="Docker">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    #content-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #content-container-center {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #distances {
+      display: flex;
+      flex-wrap: wrap; /* Permite que las distancias se envuelvan en la pantalla */
+      margin-top: 20px;
+    }
+
+    .distance {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body ng-controller="statsCtrl">
+  <div id="content-container">
+    <div id="content-container-center">
+      <div id="distances">
+        <div class="distance">
+          <div class="label">Distancia Manhattan:</div>
+          <div class="value">{{distanciaManhattan}}</div>
+        </div>
+        <div class="distance">
+          <div class="label">Distancia Pearson:</div>
+          <div class="value">{{distanciaPerson}}</div>
+        </div>
+        <!-- Nuevas distancias -->
+        <div class="distance">
+          <div class="label">Distancia Euclidiana:</div>
+          <div class="value">{{distanciaEuclidean}}</div>
+        </div>
+        <div class="distance">
+          <div class="label">Distancia Minkowski:</div>
+          <div class="value">{{distanciaMinkowski}}</div>
+        </div>
+        <div class="distance">
+          <div class="label">Similitud de Coseno:</div>
+          <div class="value">{{cosineSimilarity}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="socket.io.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
